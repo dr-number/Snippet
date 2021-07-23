@@ -25,7 +25,7 @@ function isActive(){
 
 function isActiveSendForm(){
 
-  const elem = $("#openSendForm").find("span");
+  const elem = $("#open-send-form").find("span");
 
   if(isActive())
     elem.removeClass("disable");
@@ -150,15 +150,41 @@ $(document).ready(function(){
     isActiveSendForm();
   });
 
-  $("#openSendForm").on('click', function(){
+  $("#open-send-form").on('click', function(){
 
     //Открытие формы
     if(isActive()) {
+      $(".form-error").text("");
+
       const data = JSON.stringify(sendArray);
-      $("#inputArray").val(data)
+      $("#input-array").val(data)
       $("#popupCall").addClass("active")
     }
   });
+
+  $("#form-send").on('click', function (){
+
+    const name = $("#form-name").val();
+    const phone = $("#form-tel").val();
+    const mail = $("#form-email").val();
+
+    if(!name || !phone || !mail){
+      $(".form-error").text("Все поля должны быть заполнены!");
+      return false;
+    }
+
+    const isAgree =  ($('#form-popup-check').is(':checked'))
+
+    if(!isAgree){
+      $(".form-error").text("Необходимо соглашение с политикой конфиденциальности!");
+      return false;
+    }
+
+
+    $(".form-error").text("");
+
+
+  })
 
 
   

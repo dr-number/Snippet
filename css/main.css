@@ -2734,6 +2734,14 @@ body.active .banner::before {
   visibility: visible;
 }
 
+.form-error{
+  color: red;
+}
+
+#form-name{
+  text-transform: capitalize;
+}
+
 .popup-bg {
   position: absolute;
   top: 0;

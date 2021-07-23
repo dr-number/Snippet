@@ -172,7 +172,7 @@
 
             </div>
 
-            <div id="openSendForm" class="book-footer">
+            <div id="open-send-form" class="book-footer">
               <span class="btn book-footer-btn disable">записаться</span>
             </div>
           </div>
@@ -186,17 +186,17 @@
         <strong class="popup-title">Оставьте заявку</strong>
         <span class="popup-subtitle">и администратор школы перезвонит вам в ближайшее время и ответит на все вопросы</span>
         <form action="" class="popup-form">
-          <input type="text" class="input popup-input" placeholder="ваше имя">
-          <input type="tel" class="input popup-input" placeholder="ваш телефон">
-          <input type="email" class="input popup-input" placeholder="электронная почта">
-          <input type="submit" class="btn submit popup-submit" value="записаться на занятие">
+          <input id="form-name" type="text" class="input popup-input" placeholder="ваше имя" required>
+          <input id="form-tel" type="tel" class="input popup-input" placeholder="ваш телефон" required>
+          <input id="form-email" type="email" class="input popup-input" placeholder="электронная почта" required>
+          <input id="form-send" type="submit" class="btn submit popup-submit" value="записаться на занятие" required>
           <label class="check popup-check">
-            <input type="checkbox">
+            <input id="form-popup-check" type="checkbox">
             <span class="check-custom"></span>
             <span class="check-text">Я согласен с <a href="">политикой конфиденциальности</a></span>
           </label>
-
-          <input id="inputArray" type="hidden">
+          <p id="form-error" class="form-error"></p>
+          <input id="input-array" type="hidden">
         </form>
       </div>
     </div>

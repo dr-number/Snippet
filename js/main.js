@@ -148,7 +148,7 @@ $(document).ready(function(){
 
     //Открытие формы
     if(isActive())
-      alert("ppp");
+      $("#popupCall").addClass("active")
   });
 
 

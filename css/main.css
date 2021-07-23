@@ -3402,6 +3402,10 @@ body.active .banner::before {
   color: #fff;
 }
 
+.book-day.active .book-day-span{
+  color: #000;
+}
+
 .book-cell::after {
   position: absolute;
   content: '';

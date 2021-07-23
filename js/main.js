@@ -4,6 +4,31 @@
 const sendArray = {}
 
 $(document).ready(function(){
+
+  //===============================================Time=================================================================
+  let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+
+  const date = new Date();
+  let dayWeek = "СЕГОДНЯ";
+  //console.log(now.getDate());
+
+  for(let i = 0; i < 6; ++i) {
+
+    if(i != 0)
+      dayWeek = days[date.getDay()]
+
+    $("#book-times").append(
+      ' <div class="book-time">\n' +
+      '      <span class="book-time-span">' + dayWeek + '</span>\n' +
+      '      <strong class="book-time-num">' + date.getDate() + '</strong>\n' +
+      ' </div>'
+    );
+
+    date.setDate(date.getDate() + 1)
+  }
+
+  //==========================================end  Time=================================================================
+
   $(document).scroll(function(){
     if ($(this).scrollTop() > 0) {
       $("body").addClass("active");
@@ -212,5 +237,5 @@ $(document).ready(function(){
   $(window).resize(function(){
     sliderResize();
   });
- 
+
 });

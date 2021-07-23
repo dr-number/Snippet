@@ -3,6 +3,30 @@
 
 const sendArray = new Array(4);
 
+function isActive(){
+
+  const size = sendArray.length - 1;
+
+  for (let i = 0; i < size; ++i){
+    if(sendArray[i] == undefined){
+      return false;
+      break;
+    }
+  }
+
+  return true;
+}
+
+function isActiveSendForm(){
+
+  const elem = $("#openSendForm").find("span");
+
+  if(isActive())
+    elem.removeClass("disable");
+  else
+    elem.addClass("disable");
+}
+
 $(document).ready(function(){
 
   //===============================================Time=================================================================
@@ -82,8 +106,10 @@ $(document).ready(function(){
 
     time = time.split("-");
 
-   //console.log(time);
-   sendArray[2] = time;
+    //console.log(time);
+    sendArray[2] = time;
+
+    isActiveSendForm();
   });
 
   $(".book-time").on('click', function(){
@@ -94,6 +120,8 @@ $(document).ready(function(){
 
     //console.log(date);
     sendArray[1] = date;
+
+    isActiveSendForm();
   });
 
   $(".book-cell").on('click', function(){
@@ -102,6 +130,8 @@ $(document).ready(function(){
 
     const id = $(this).attr('data-tutor-id');
     sendArray[0] = id;
+
+    isActiveSendForm();
   });
 
   $(".book-switch-btn").on('click', function(){
@@ -110,6 +140,15 @@ $(document).ready(function(){
 
     const isOnline = $(this).attr('data-book');
     sendArray[4] = isOnline;
+
+    isActiveSendForm();
+  });
+
+  $("#openSendForm").on('click', function(){
+
+    //Открытие формы
+    if(isActive())
+      alert("ppp");
   });
 
 

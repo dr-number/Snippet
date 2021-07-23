@@ -33,6 +33,19 @@ function isActiveSendForm(){
     elem.addClass("disable");
 }
 
+function errorInput(context, regex, messageError){
+  const oldValue = context.value;
+  context.value = context.value.replace(regex, '');
+  const newValue = context.value;
+
+  const errorElement =  $(".form-error");
+
+  if(oldValue.length != 0 && oldValue != newValue)
+    errorElement.text(messageError);
+  else
+    errorElement.text("");
+}
+
 $(document).ready(function(){
 
   //===============================================Time=================================================================
@@ -160,6 +173,14 @@ $(document).ready(function(){
       $("#input-array").val(data)
       $("#popupCall").addClass("active")
     }
+  });
+
+  $("#form-name").on('input', function() {
+    errorInput(this, /[^аА-яЯ]/g, "Разрешены только русские символы!");
+  });
+
+  $("#form-email").on('input', function() {
+    errorInput(this, /[^aA-zZ@!#$%&'*+-/=?^_`{|}~.]/g, "Некорректный символ для E-mail!");
   });
 
   $("#form-send").on('click', function (){
